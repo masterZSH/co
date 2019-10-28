@@ -22,7 +22,7 @@ describe('co.wrap(fn*)', function () {
 
   it('should expose the underlying generator function', function () {
     var wrapped = co.wrap(function* (a, b, c) {});
-    var source = Object.toString.call(wrapped.__generatorFunction__);
-    assert(source.indexOf('function*') === 0);
+    var source = wrapped.__generatorFunction__.__proto__.constructor.name;
+    assert(source, 'GeneratorFunction');
   })
 })
