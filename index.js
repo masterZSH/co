@@ -196,7 +196,7 @@ function objectToPromise(obj){
  */
 
 function isPromise(obj) {
-  return 'function' == typeof obj.then;
+  return !!obj && (typeof obj === 'object' && obj.__proto__ === Promise.prototype)
 }
 
 /**
